@@ -207,7 +207,7 @@ public class Main {
       System.out.println(wild.toString());
       System.out.println("\nWhat will you do?");
       System.out.println( "1. Fight \n2. Use potion \n3. Throw pokeball \n4. Run away");
-      option = CheckInput.getIntRange(1, 4);
+      option = CheckInput.getIntRange(1, wild.getNumBasicMenuItems());
       switch (option) {
         case 1:
           pChoice = 0;
@@ -228,17 +228,9 @@ public class Main {
           System.out.println("2. Special attack");
           option = CheckInput.getIntRange(1, 2);
           if(option == 1){
-            System.out.println( "\n1. Slam \n2. Tackle \n3. Punch");
-            option = CheckInput.getIntRange(1, 3);
-            if (option == 1){
-              System.out.println( "\n" + fighter.slam(wild));
-            }
-            else if (option == 2){
-              System.out.println( "\n" + fighter.tackle(wild));
-            }
-            else if (option == 3){
-              System.out.println( "\n" + fighter.punch(wild));
-            }
+            System.out.println( fighter.getAttackMenu());
+            option = CheckInput.getIntRange(1, fighter.getNumAttackMenuItems());
+            fighter.basicAttack(wild, option);
           }
           else if(option == 2){
             System.out.println( "\n" + fighter.getSpecialMenu() );
@@ -250,15 +242,7 @@ public class Main {
 
             if(randOption == 1){
               option = (int)( Math.random() * ((3 - 1) + 1) + 1); 
-              if (option == 1){
-                System.out.println( wild.slam(fighter) + "\n");
-              }
-              else if (option == 2){
-                System.out.println( wild.tackle(fighter) + "\n");
-              }
-              else if (option == 3){
-                System.out.println( wild.punch(fighter) + "\n");
-              }
+              wild.basicAttack(fighter, option);
             }
             else if(randOption == 2){
               option = (int)( Math.random() * ((wild.getNumSpecialMenuItems() - 1) + 1) + 1);

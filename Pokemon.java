@@ -38,6 +38,7 @@ public abstract class Pokemon extends Entity{
     return ("1. Fight \n2. Use potion \n3. Throw pokeball \n4. Run away");
   }
 
+
   public int getNumBasicMenuItems() {
     
     return 4;
@@ -48,21 +49,21 @@ public abstract class Pokemon extends Entity{
     String out = "";
     option = CheckInput.getIntRange(1, 3);
     if (option == 1){
-      System.out.println( "\n" + fighter.slam(wild));
+      out = this.slam(p);
     }
     else if (option == 2){
-      System.out.println( "\n" + fighter.tackle(wild));
+      out = this.tackle(p);
     }
     else if (option == 3){
-      System.out.println( "\n" + fighter.punch(wild));
+      out = this.punch(p);
     }
 
-    return null;
+    return out;
   }
 
   public String getAttackMenu() {
-
-    return null;
+    String out = "\n1. Slam \n2. Tackle \n3. Punch";
+    return out;
   }
 
   /**
@@ -70,7 +71,7 @@ public abstract class Pokemon extends Entity{
    * @return Number of attack menu items
    */
   public int getNumAttackMenuItems() {
-    return 4;
+    return 3;
       
   }
 
