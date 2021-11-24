@@ -45,16 +45,14 @@ public abstract class Pokemon extends Entity{
   }
   
   public String basicAttack(Pokemon p, int move) {
-    int option = 0;
     String out = "";
-    option = CheckInput.getIntRange(1, 3);
-    if (option == 1){
+    if (move == 1){
       out = this.slam(p);
     }
-    else if (option == 2){
+    else if (move == 2){
       out = this.tackle(p);
     }
-    else if (option == 3){
+    else if (move == 3){
       out = this.punch(p);
     }
 
