@@ -40,10 +40,22 @@ public abstract class Pokemon extends Entity{
 
   public int getNumBasicMenuItems() {
     
-    return 0;
+    return 4;
   }
   
-  public String basicAttack() {
+  public String basicAttack(Pokemon p, int move) {
+    int option = 0;
+    String out = "";
+    option = CheckInput.getIntRange(1, 3);
+    if (option == 1){
+      System.out.println( "\n" + fighter.slam(wild));
+    }
+    else if (option == 2){
+      System.out.println( "\n" + fighter.tackle(wild));
+    }
+    else if (option == 3){
+      System.out.println( "\n" + fighter.punch(wild));
+    }
 
     return null;
   }
