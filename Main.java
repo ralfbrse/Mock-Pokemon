@@ -230,7 +230,7 @@ public class Main {
           if(option == 1){
             System.out.println( fighter.getAttackMenu());
             option = CheckInput.getIntRange(1, fighter.getNumAttackMenuItems());
-            fighter.basicAttack(wild, option);
+            System.out.println( fighter.basicAttack(wild, option));
           }
           else if(option == 2){
             System.out.println( "\n" + fighter.getSpecialMenu() );
@@ -242,7 +242,7 @@ public class Main {
 
             if(randOption == 1){
               option = (int)( Math.random() * ((3 - 1) + 1) + 1); 
-              wild.basicAttack(fighter, option);
+              System.out.println( wild.basicAttack(fighter, option));
             }
             else if(randOption == 2){
               option = (int)( Math.random() * ((wild.getNumSpecialMenuItems() - 1) + 1) + 1);
