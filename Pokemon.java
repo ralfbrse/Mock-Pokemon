@@ -40,7 +40,7 @@ public abstract class Pokemon extends Entity{
 
   public int getNumBasicMenuItems() {
     
-    return 0;
+    return 4;
   }
   
   public String basicAttack() {
