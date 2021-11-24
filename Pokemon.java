@@ -38,6 +38,21 @@ public abstract class Pokemon extends Entity{
     return ("1. Fight \n2. Use potion \n3. Throw pokeball \n4. Run away");
   }
 
+  public int getNumBasicMenuItems() {
+    
+    return 0;
+  }
+  
+  public String basicAttack() {
+
+    return null;
+  }
+
+  public String getAttackMenu() {
+
+    return null;
+  }
+
   /**
    * 
    * @return Number of attack menu items
