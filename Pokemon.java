@@ -45,16 +45,21 @@ public abstract class Pokemon extends Entity{
   }
   
   public String basicAttack(Pokemon p, int move) {
-    if (move == 1){
-      return this.slam(p);
-    }
-    else if (move == 2){
-      return this.tackle(p);
-    }
-    else if (move == 3){
-      return this.punch(p);
-    }
+    if (move == 1) return this.slam(p);
+    
+    else if (move == 2) return this.tackle(p);
+    
+    else if (move == 3) return this.punch(p);
+    
     else return null;
+  }
+
+  public String getAttackTypeMenu() {
+    return "\n1. Basic \n2Special";
+    }
+
+  public String getNumAttackTypeMenuItems(){
+    return 2;
   }
 
   public String getAttackMenu() {
