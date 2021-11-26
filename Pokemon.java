@@ -62,10 +62,11 @@ public abstract class Pokemon extends Entity{
     return 2;
   }
 
-  public String getAttackMenu() {
+  public String getAttackMenu(int atkType) {
     String out = "\n1. Slam \n2. Tackle \n3. Punch";
     return out;
   }
+
 
   /**
    * 
@@ -82,7 +83,7 @@ public abstract class Pokemon extends Entity{
    * @return action string
    */
   public String slam(Pokemon p) {
-    int damage = (int)( Math.random() * ((5 - 0) + 1) + 0) ;
+    int damage = (int)( Math.random() * ((5) + 1)) ;
     p.takeDamage(damage);
 
     return this.getName() + " slams "+ p.getName() + " for " + damage + " damage!";

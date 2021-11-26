@@ -228,7 +228,7 @@ public class Main {
           System.out.println("2. Special attack");
           option = CheckInput.getIntRange(1, 2);
           if(option == 1){
-            System.out.println( fighter.getAttackMenu());
+            System.out.println( fighter.getAttackMenu(fighter.getType()));
             option = CheckInput.getIntRange(1, fighter.getNumAttackMenuItems());
             System.out.println( fighter.basicAttack(wild, option));
           }
