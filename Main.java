@@ -7,8 +7,7 @@
  * Pokemon project 1: A text game version of the game Pokemon.
  */
 
-import java.util.Scanner;
-import java.awt.Point;
+
 public class Main {
 
   public static void main(String[] args) {
