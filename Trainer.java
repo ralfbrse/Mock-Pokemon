@@ -17,7 +17,7 @@ public class Trainer extends Entity {
    * @param m map
    */
   public Trainer(String n, Pokemon p, Map m) {
-    super(n,25);
+    super(n,25, 25); //FIXME
     pokemon.add(p);
     this.map = m;
     this.loc = map.findStart();
