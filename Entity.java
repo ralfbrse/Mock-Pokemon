@@ -8,10 +8,10 @@ public abstract class Entity {
     * @param n Name
     * @param mHp Max hp
     */
-  public Entity(String n, int mHp){
+  public Entity(String n, int h, int m){
     this.name = n;
-    this.hp = mHp;
-    this.maxHp = mHp;
+    this.hp = h;
+    this.maxHp = m;
   }
 
   /**

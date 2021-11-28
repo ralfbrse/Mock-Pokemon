@@ -228,7 +228,7 @@ public class Main {
           option = CheckInput.getIntRange(1, 2);
           if(option == 1){
             System.out.println( fighter.getAttackMenu(fighter.getType()));
-            option = CheckInput.getIntRange(1, fighter.getNumAttackMenuItems());
+            option = CheckInput.getIntRange(1, fighter.getNumAttackMenuItems(1)); //FIXME
             System.out.println( fighter.basicAttack(wild, option));
           }
           else if(option == 2){

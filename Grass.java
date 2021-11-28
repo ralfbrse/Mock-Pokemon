@@ -1,27 +1,29 @@
-public interface Grass {
+public class Grass extends Pokemon{
 
-    public String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
-    public int numSpecialMenuItems = 3;
+    //public String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
+    //public int numSpecialMenuItems = 3;
 
-    /**
-     * Vine whip move for grass pokemon
-     * @param p Pokemon being attacked
-     * @return Action string
-     */
-    public String vineWhip(Pokemon p);
+    public Grass(String n, int h, int m) {
+        super(n, h, m);
+        //TODO Auto-generated constructor stub
+    }
 
-    /**
-     * Razor leaf move for grass pokemon
-     * @param p Pokemon being attacked
-     * @return Action string
-     */
-    public String razorLeaf(Pokemon p);
+    @Override
+    String getSpecialMenu() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-    /**
-     * Solar beam move for grass pokemon
-     * @param p Pokemon being attacked
-     * @return Action string
-     */
-    public String solarBeam(Pokemon p);
+    @Override
+    int getNumSpecialMenuItems() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    String specialAttack(Pokemon p, int move) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

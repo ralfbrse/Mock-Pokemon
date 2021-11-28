@@ -6,8 +6,8 @@ public abstract class Pokemon extends Entity{
    * Constructor. Default hp 20
    * @param n name of pokemon
    */
-  public Pokemon(String n) {
-    super(n, 20);
+  public Pokemon(String n, int h, int m) {
+    super(n, h, m);
   }
 
   /**
