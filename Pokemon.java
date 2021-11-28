@@ -20,9 +20,7 @@ public abstract class Pokemon extends Entity{
 
   //FIXME
   public String getAttackMenu(int atkType) {
-    if (atkType == 1) return "\n1. Slam \n2. Tackle \n3. Punch";
-    if (atkType == 2) return "FIXME BRUH";
-    return "bruh";
+    return "\n1. Slam \n2. Tackle \n3. Punch";
   }
 
   /**
@@ -31,7 +29,6 @@ public abstract class Pokemon extends Entity{
    */
   public int getNumAttackMenuItems(int atkType) {
     return 3;
-      
   }
 
   ///////////////
