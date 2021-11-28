@@ -10,6 +10,72 @@ public abstract class Pokemon extends Entity{
     super(n, h, m);
   }
 
+  public String getAttackTypeMenu() {
+    return "\n1. Basic \n2Special";
+    }
+
+  public int getNumAttackTypeMenuItems(){
+    return 2;
+  }
+
+  //FIXME
+  public String getAttackMenu(int atkType) {
+    if (atkType == 1) return "\n1. Slam \n2. Tackle \n3. Punch";
+    if (atkType == 2) return "FIXME BRUH";
+    return "bruh";
+  }
+
+  /**
+   * 
+   * @return Number of attack menu items
+   */
+  public int getNumAttackMenuItems(int atkType) {
+    return 3;
+      
+  }
+
+  ///////////////
+  public String attack(Pokemon p, int atkType, int move) {
+    return null;
+    
+  }
+
+  public String getAttackString(int atkType, int move) {
+    return null;
+    
+  }
+
+  public int getAttackDamage(int atkType, int move) {
+    return 0;
+    
+  }
+
+  public int getAttackMultiplier(Pokemon p, int atkType) {
+    return 0;
+    
+  }
+
+  public int getAttackBonus(int atkType) {
+    return 0;
+    
+  }
+
+
+  //FIXME ?
+  public int getType(){
+      
+    if(this instanceof Fire) return 0;
+    else if(this instanceof Water) return 1;
+    else if(this instanceof Grass) return 2;
+
+    return 0;
+      
+  }
+
+
+
+
+  
   /**
    * Displays menu of special attacks
    * @return Menu string
@@ -62,33 +128,7 @@ public abstract class Pokemon extends Entity{
     
     else return null;
   }
-
-  public String getAttackTypeMenu() {
-    return "\n1. Basic \n2Special";
-    }
-
-  public int getNumAttackTypeMenuItems(){
-    return 2;
-  }
-
-  //FIXME
-  public String getAttackMenu(int atkType) {
-    if (atkType == 1) return "\n1. Slam \n2. Tackle \n3. Punch";
-    if (atkType == 2) return "FIXME BRUH";
-    return "bruh";
-  }
   
-
-
-  /**
-   * 
-   * @return Number of attack menu items
-   */
-  public int getNumAttackMenuItems(int atkType) {
-    return 3;
-      
-  }
-
   /**
    * Slam attack. Damage range 0-5. Deals damage in method
    * @param p pokemon to attack
@@ -125,19 +165,4 @@ public abstract class Pokemon extends Entity{
 
     return this.getName() + " punched "+ p.getName() + " for " + damage + " damage!";
   }
-
-  /**
-   * Check elemental type of pokemon for (dis)advantage on attacks
-   * @return pokemon type int
-   */
-  public int getType(){
-      
-    if(this instanceof Fire) return 0;
-    else if(this instanceof Water) return 1;
-    else if(this instanceof Grass) return 2;
-
-    return 0;
-      
-  }
-
 }

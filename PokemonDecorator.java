@@ -3,7 +3,7 @@ public abstract class PokemonDecorator extends Pokemon {
 
     public PokemonDecorator(Pokemon p, String extraName, int extraHp){
         super(p.getName() + extraName, p.getHp()+extraHp, p.getMaxHp()+extraHp );
-        this.pokemon = p;
+        
     }
     
 
