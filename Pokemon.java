@@ -14,12 +14,18 @@ public abstract class Pokemon extends Entity{
    * Displays menu of special attacks
    * @return Menu string
    */
-  abstract String getSpecialMenu();
+  public String getSpecialMenu(){
+    return null;
+
+  }
 
   /**
    * @return number of special menu items
    */
-  abstract int getNumSpecialMenuItems();
+  public int getNumSpecialMenuItems(){
+    return 0;
+    
+  }
 
   /**
    * Executes attack and deals damage.
@@ -27,7 +33,10 @@ public abstract class Pokemon extends Entity{
    * @param move move to perform
    * @return action string
    */
-  abstract String specialAttack(Pokemon p, int move);
+  public String specialAttack(Pokemon p, int move){
+    return null;
+    
+  }
 
 
   /**
