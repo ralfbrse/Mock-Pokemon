@@ -2,17 +2,16 @@ public abstract class PokemonDecorator extends Pokemon {
     private Pokemon pokemon;
 
     public PokemonDecorator(Pokemon p, String extraName, int extraHp){
-        super(p.getName(), p.getHp()+extraHp, p.getMaxHp()+extraHp );
-        
-
+        super(p.getName() + extraName, p.getHp()+extraHp, p.getMaxHp()+extraHp );
+        this.pokemon = p;
     }
-
     
+
     public String getAttackMenu(int atkType) {
         if (atkType == 1) return "\n1. Slam \n2. Tackle \n3. Punch";
-        if (atkType == 2) return "FIXME BRUH";
-        return "bruh";
-      }
+        else if (atkType == 2) return "FIXME BRUH";
+        else return "";
+        }
 
     public String getNumAttackMenuItems(){
         return null;
