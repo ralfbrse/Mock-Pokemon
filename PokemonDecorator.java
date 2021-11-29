@@ -22,8 +22,5 @@ public abstract class PokemonDecorator extends Pokemon {
         
     }
 
-    public int getAttackDamage(int atkType, int move) {
-        return move;
-
-    }
+    
 }

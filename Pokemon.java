@@ -33,8 +33,10 @@ public abstract class Pokemon extends Entity{
 
   ///////////////
   public String attack(Pokemon p, int atkType, int move) {
-    return null;
-    
+    double total;
+    total = this.getAttackDamage(atkType, move) * this.getAttackMultiplier(p, atkType);
+    p.takeDamage((int)Math.floor(total));
+    return this.getAttackString(atkType, move);
   }
 
   public String getAttackString(int atkType, int move) {
@@ -58,19 +60,21 @@ public abstract class Pokemon extends Entity{
           break;
       }
     }
-
-
     return out;
   }
 
   public int getAttackDamage(int atkType, int move) {
-    return 0;
+    int damage = (int)( Math.random() * ((10 - 2) + 1) + 2) ;
+    return damage;
     
   }
 
-  public int getAttackMultiplier(Pokemon p, int atkType) {
-    return 0;
-    
+  public double getAttackMultiplier(Pokemon p, int atkType) {
+    if (atkType == 2) {
+      double multi = battleTable[this.getType()][p.getType()];
+      return multi;
+    }
+    return 1;
   }
 
   public int getAttackBonus(int atkType) {
