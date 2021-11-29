@@ -14,13 +14,29 @@ public class Grass extends Pokemon{
 
     @Override
     public int getNumAttackMenuItems(int atkType) {
-        // TODO Auto-generated method stub
-        return super.getNumAttackMenuItems(atkType);
+        return (atkType == 2) ? 3 : super.getNumAttackMenuItems(atkType);
     }
 
     @Override
     public String getAttackString(int atkType, int move) {
-        // TODO Auto-generated method stub
+        String out = "";
+
+        if (atkType == 2) {
+            switch (move) {
+                case 1:
+                    out = "WHIPPED"; //Vine whip
+                    break;
+                case 2:
+                    out = "CUT"; //Razor leaf
+                    break;
+                case 3: 
+                    out = "SUN DRIED LIKE A TOMATO LMAO"; //Solar beam
+                    break;
+                default:
+                    break;
+            }
+            return out;
+        }
         return super.getAttackString(atkType, move);
     }
 

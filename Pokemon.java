@@ -38,8 +38,29 @@ public abstract class Pokemon extends Entity{
   }
 
   public String getAttackString(int atkType, int move) {
-    return null;
-    
+    String out = "";
+
+    if (atkType == 1) {
+      switch (move) {
+        case 1:
+          out = "SLAMMED";
+          break;
+
+        case 2:
+          out = "TACKLED";
+          break;
+
+        case 3:
+          out = "PUNCHED";
+          break;
+      
+        default:
+          break;
+      }
+    }
+
+
+    return out;
   }
 
   public int getAttackDamage(int atkType, int move) {
