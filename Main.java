@@ -12,7 +12,8 @@ public class Main {
 
   public static void main(String[] args) {
     Trainer trainer;
-    Pokemon pokemon; //FIXME
+    Pokemon pokemon;
+    PokemonGenerator pokemonGenerator = new PokemonGenerator(); //FIXME
     Map map = Map.getInstance();
     int currMap = 1;
     map.loadMap(currMap);
@@ -26,8 +27,8 @@ public class Main {
     int choice = CheckInput.getIntRange(1,3);
       
     if(choice == 1){
-      pokemon = new Charmander();
-      trainer = new Trainer(name, pokemon, map);
+      pokemon = pokemonGenerator.getPokemon("Charmander");
+      trainer = new Trainer(name, pokemon);
       System.out.println("\n" + trainer + "\n");
     }
     else if(choice == 2){
