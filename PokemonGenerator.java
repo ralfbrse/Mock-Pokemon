@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class PokemonGenerator {
@@ -35,25 +36,54 @@ public class PokemonGenerator {
     }
 
     public Pokemon generateRandomPokemon(int level){
-        //generateRandomPokemon should randomly pick a pokémon from
-        //the HashMap, and then construct a pokémon of the corresponding
-        //elemental base type. Then for each level greater than one,
-        //repeatedly decorate it with a random buff (ex. a level 3 pokémon
-        //might be a Fire pokémon decorated with +ATK and +HP), this will
-        //cause the constructed pokémon to gain an additional title, increase
-        //its hp and maxHp, and/or do additional damage
+        // generateRandomPokemon should randomly pick a pokémon from the HashMap,
+        // Construct a pokémon of the corresponding elemental base type.
+        // Then for each level greater than one, repeatedly decorate it with a random buff
+        // (ex. a level 3 pokémon might be a Fire pokémon decorated with +ATK and +HP),
+        // this will cause the constructed pokémon to gain an additional title, increase
+        // its hp and maxHp, and/or do additional damage
+        
+        Random random = new Random();
+        String[] pokemonSet = pokemon.keySet().toArray(new String[0]);
+        String randomPokemonStr = pokemonSet[random.nextInt(pokemon.size())];
+        Pokemon randPoke = this.getPokemon(randomPokemonStr);
 
-        int range = (int)( Math.random() * pokemon.size());
-        return null;
+        if (level > 1){
+            level -= 1;
+            while (level > 0){
+                this.addRandomBuff(randPoke);
+                level -= 1;
+            }
+        }
+        
+        return randPoke;
     }
+
     public Pokemon getPokemon(String name){
         //getPokemon passes in a string with the name of a pokémon and
         //constructs an object of the correct corresponding type.
-        pokemon.get(name);
-        return null;
+        Pokemon p = null; //FIXME
+        switch (pokemon.get(name)) {
+            case "Grass":
+                p = new Grass(name, 0, 0);
+                break;
+            case "Fire":
+                p = new Fire(name, 0, 0);
+                break;
+
+            case "Water":
+                p = new Water(name, 0, 0);
+                break;
+        
+            default:
+                break;
+        }
+
+        return p;
     }
     public Pokemon addRandomBuff(Pokemon p){
-        return p;
+        Pokemon bruh = new AttackUp(p);
+        return bruh;
         // addRandomBuff/Debuff randomly chooses a buff/debuff to apply
         //to the pokémon (note: this should not reset the pokémon’s hp (ex.
         //if the pokémon’s hp was 14/20, then after being buffed with the
