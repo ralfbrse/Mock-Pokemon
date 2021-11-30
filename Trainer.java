@@ -7,7 +7,6 @@ public class Trainer extends Entity {
   private int potions;
   private int pokeballs;
   private Point loc;
-  private Map map = new Map();
   private ArrayList<Pokemon> pokemon = new ArrayList<Pokemon>();
 
   /**
@@ -16,11 +15,10 @@ public class Trainer extends Entity {
    * @param p pokemon
    * @param m map
    */
-  public Trainer(String n, Pokemon p, Map m) {
-    super(n,25, 25); //FIXME
-    pokemon.add(p);
-    this.map = m;
-    this.loc = map.findStart();
+  public Trainer(String n, Pokemon p) {
+    super(n, 25, 25); //FIXME
+    this.pokemon.add(p);
+    //this.loc = map.findStart();
     this.money = 25;
     this.potions = 1;
     this.pokeballs = 5;
@@ -30,7 +28,7 @@ public class Trainer extends Entity {
    * @returns current amount of money
    */
   public int getMoney() {
-    return money;
+    return this.money;
   }
 
   /**
@@ -104,7 +102,7 @@ public class Trainer extends Entity {
    * @param p pokemon
    * @return true if we can catch pokemon, false otherwise
    */
-  public boolean catchPokemon(Pokemon p) {
+  public boolean catchPokemon(Pokemon p) { //FIXME
     if(this.hasPokeball()) {
       this.pokeballs -= 1;
       double healthPercent = 100 - 100*(p.getHp()/p.getMaxHp());
@@ -129,9 +127,10 @@ public class Trainer extends Entity {
    * @return location
    */
   public Point getLocation() {
-    return loc;
+    return this.loc;
   }
 
+  //FIXME x4
   /**
    * @return the character north of location if applicable
    */
@@ -212,6 +211,15 @@ public class Trainer extends Entity {
     }
   }
 
+
+  public void buffAllPokemon() {
+    //FIXME
+  }
+
+  public void debuffPokemon(int index) {
+    //FIXME
+  }
+
   /**
    * @param index pokemon slot
    * @return the pokemon at the index
@@ -220,7 +228,7 @@ public class Trainer extends Entity {
     return this.pokemon.get(index);
   }
 
-  /**
+  /** //FIXME
    * @return the list of pokemon that you own
    */
   public String getPokemonList() {
@@ -234,10 +242,15 @@ public class Trainer extends Entity {
     return list + list2;
   }
 
+  public Pokemon removePokemon(int index) {
+    this.pokemon.remove(index);
+    return null;
+  } //FIXME
+
   /**
    * @return the trainer info
    */
-  @Override
+  @Override //FIXME Types?
   public String toString() {
     return super.toString() + "\nMoney: " + this.getMoney() + "\nPotions: " + this.potions + "\nPoke Balls: " + this.pokeballs + "\n" + this.getPokemonList();
   }
