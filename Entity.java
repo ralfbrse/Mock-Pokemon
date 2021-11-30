@@ -6,7 +6,7 @@ public abstract class Entity {
   /**
     * Entity object constructor
     * @param n Name
-    * @param mHp Max hp
+    * @param m Max hp
     */
   public Entity(String n, int h, int m){
     this.name = n;
