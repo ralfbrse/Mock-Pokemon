@@ -2,12 +2,11 @@ import java.awt.Point;
 import java.io.*;
 import java.util.Scanner;
 
-
 public class Map {
   private char [][] map; //character ARRAY
   private boolean [][] revealed; //boolean ARRAY
-  
-  
+  private static Map instance = null;
+    
   public Map(){
     map = new char[5][5];
     revealed = new boolean[5][5];
@@ -15,11 +14,14 @@ public class Map {
       java.util.Arrays.fill(row, false);
     }
   }
+
+  public static Map getInstance() {
+    if( instance == null ) {
+         instance = new Map( );
+    }
+    return instance;
+  }
   
-  /**
-   * Loads up map text file into playable map
-   * @param mapNum option 1, 2, or 3
-   */
   public void loadMap(int mapNum){
     String dispMap = "";
     int row = -1;
@@ -93,18 +95,9 @@ public class Map {
         System.out.println("file not found");
       }
     }
-
-    
-
-
-    //System.out.println(dispMap);
   }
 
- /**
-  * Checks position character
-  * @param p point to check
-  * @return character on map
-  */
+ 
   public char getCharAtLoc(Point p){
     //return the char/letter at point
     double x = p.getX();
@@ -112,11 +105,7 @@ public class Map {
     return map[(int) x][(int) y];
   }
 
-  /**
-   * Displays entire map with current location as *
-   * @param p point to reveal
-   * @return map as string
-   */
+  
   public String mapToString(Point p) {
     //Use the boolean 2D revealed array to decide whether a space on the map
     //is shown or hidden when writing the mapToString method (which also displays the
@@ -147,10 +136,7 @@ public class Map {
     return dispMap;    
   }
 
-  /**
-   * Scans map for S and places character on it
-   * @return starting point
-   */
+  
   public Point findStart() {
     Point start = new Point();
       for (int i = 0; i < 5; i++) {
@@ -163,20 +149,14 @@ public class Map {
       return start;
   }
 
-  /**
-   * Reveals the character hidden under Xs
-   * @param p hidden point to reveal
-   */
+ 
   public void reveal(Point p){
     double x = p.getX();
     double y = p.getY();
     revealed[(int) x][(int) y] = true;
   }
 
-  /**
-   * Clears spot of any character after interaction is over (besides shop, start, finish, and n)
-   * @param p point to clear
-   */
+ 
   public void removeCharAtLoc(Point p){
     double x = p.getX();
     double y = p.getY();
