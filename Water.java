@@ -49,7 +49,7 @@ public class Water extends Pokemon{
 
     
     @Override
-    public int getAttackMultiplier(Pokemon p, int atkType) {
+    public double getAttackMultiplier(Pokemon p, int atkType) {
         // TODO Auto-generated method stub
         return super.getAttackMultiplier(p, atkType);
     }
