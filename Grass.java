@@ -1,8 +1,5 @@
 public class Grass extends Pokemon{
 
-    //public String specialMenu = "1. Vine Whip\n2. Razor Leaf\n3. Solar Beam";
-    //public int numSpecialMenuItems = 3;
-
     public Grass(String n, int h, int m) {
         super(n, h, m);
     }
@@ -19,7 +16,7 @@ public class Grass extends Pokemon{
 
     @Override
     public String getAttackString(int atkType, int move) {
-        String out = "";
+        String out = "stood menacingly near";
 
         if (atkType == 2) {
             switch (move) {
@@ -40,17 +37,35 @@ public class Grass extends Pokemon{
         return super.getAttackString(atkType, move);
     }
 
-
     @Override
     public int getAttackDamage(int atkType, int move) {
-        // TODO Auto-generated method stub
+        if (atkType == 2) {
+            int damage;
+            switch (move) {
+                case 1:
+                    damage = (int)( Math.random() * ((3 - 1) + 1) + 1) ;
+                break;
+            
+                case 2:
+                    damage = (int)( Math.random() * ((4 - 2) + 1) + 2) ;
+                break;
+        
+                case 3:
+                    damage = (int)( Math.random() * (5 + 1)) ;
+                break;
+
+                default:
+                    damage = 1;
+                break;
+            }
+            return damage;    
+        }
+
         return super.getAttackDamage(atkType, move);
     }
 
-    
     @Override
     public double getAttackMultiplier(Pokemon p, int atkType) {
-        // TODO Auto-generated method stub
         return super.getAttackMultiplier(p, atkType);
     }
 
