@@ -12,8 +12,8 @@ public class Main {
 
   public static void main(String[] args) {
     Trainer trainer;
-    Pokemon pokemon = new Squirtle();
-    Map map = new Map();
+    Pokemon pokemon; //FIXME
+    Map map = Map.getInstance();
     int currMap = 1;
     map.loadMap(currMap);
     boolean inNav = true;

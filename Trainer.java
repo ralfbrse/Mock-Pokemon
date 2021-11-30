@@ -18,7 +18,7 @@ public class Trainer extends Entity {
   public Trainer(String n, Pokemon p) {
     super(n, 25, 25); //FIXME
     this.pokemon.add(p);
-    //this.loc = map.findStart();
+    this.loc = Map.getInstance().findStart();
     this.money = 25;
     this.potions = 1;
     this.pokeballs = 5;
@@ -137,14 +137,14 @@ public class Trainer extends Entity {
   public char goNorth() {
     double x = this.getLocation().getX();
     double y = this.getLocation().getY();
-    map.reveal(loc);
+    Map.getInstance().reveal(loc);
     if((x - 1.0) >= 0.0) {
       loc.setLocation(x-1 , y);
-      return map.getCharAtLoc(this.getLocation());
+      return Map.getInstance().getCharAtLoc(this.getLocation());
     } else {
       System.out.println("\nCan't go that way!");
     }
-    return map.getCharAtLoc(this.getLocation());
+    return Map.getInstance().getCharAtLoc(this.getLocation());
   }
 
   /**
@@ -153,14 +153,14 @@ public class Trainer extends Entity {
   public char goSouth() {
     double x = this.getLocation().getX();
     double y = this.getLocation().getY();
-    map.reveal(loc);
+    Map.getInstance().reveal(loc);
     if((x + 1.0) <= 4.0) {
       loc.setLocation(x+ 1, y);
-      return map.getCharAtLoc(this.getLocation());
+      return Map.getInstance().getCharAtLoc(this.getLocation());
     } else {
       System.out.println("\nCan't go that way!");
     }
-    return map.getCharAtLoc(this.getLocation());
+    return Map.getInstance().getCharAtLoc(this.getLocation());
   }
 
   /**
@@ -169,14 +169,14 @@ public class Trainer extends Entity {
   public char goEast() {
     double x = this.getLocation().getX();
     double y = this.getLocation().getY();
-    map.reveal(loc);
+    Map.getInstance().reveal(loc);
     if((y + 1.0) <= 4.0) {
       loc.setLocation( x, y + 1.0);
-      return map.getCharAtLoc(this.getLocation());
+      return Map.getInstance().getCharAtLoc(this.getLocation());
     } else {
       System.out.println("\nCan't go that way!");
     }
-    return map.getCharAtLoc(this.getLocation());
+    return Map.getInstance().getCharAtLoc(this.getLocation());
   }
 
   /**
@@ -185,14 +185,14 @@ public class Trainer extends Entity {
   public char goWest() {
     double x = this.getLocation().getX();
     double y = this.getLocation().getY();
-    map.reveal(loc);
+    Map.getInstance().reveal(loc);
     if((y - 1.0) >= 0.0) {
       loc.setLocation(x, y - 1);
-      return map.getCharAtLoc(this.getLocation());
+      return Map.getInstance().getCharAtLoc(this.getLocation());
     } else {
       System.out.println("\nCan't go that way!");
     }
-    return map.getCharAtLoc(this.getLocation());
+    return Map.getInstance().getCharAtLoc(this.getLocation());
   }
 
   /**
